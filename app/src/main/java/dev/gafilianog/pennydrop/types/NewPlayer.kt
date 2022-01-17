@@ -5,10 +5,10 @@ import dev.gafilianog.pennydrop.game.AI
 
 data class NewPlayer(
     var playerName: String = "",
-    var isIncluded: ObservableBoolean = ObservableBoolean(false),
     val isHuman: ObservableBoolean = ObservableBoolean(true),
     val canBeRemoved: Boolean = true,
     val canBeToggled: Boolean = true,
+    var isIncluded: ObservableBoolean = ObservableBoolean(!canBeRemoved),
     var selectedAIPosition: Int = -1
 ) {
     fun selectedAI() = if (!isHuman.get()) {
