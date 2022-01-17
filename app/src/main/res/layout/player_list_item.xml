@@ -57,10 +57,9 @@
             android:layout_height="wrap_content"
             android:checked="@={player.isHuman}"
             android:enabled="@{player.isIncluded}"
-            android:thumb="@drawable/ai_toggle_bg"
-            android:thumbTint="@color/ai_toggle_color"
-            android:trackTint="@color/ai_toggle_color"
             android:visibility="@{player.canBeToggled ? View.VISIBLE : View.INVISIBLE}"
+            android:thumb="@drawable/ai_toggle_bg"
+            app:trackTint="@color/ai_toggle_color"
             app:layout_constraintBottom_toBottomOf="@id/edit_text_player_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/edit_text_player_name" />
