@@ -13,5 +13,6 @@
     <string name="or">OR</string>
     <string name="pass">Pass</string>
     <string name="coin_icon">Coin Icon</string>
+    <string name="na">N/A</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
