@@ -4,7 +4,7 @@ import dev.gafilianog.pennydrop.types.Player
 import dev.gafilianog.pennydrop.types.Slot
 
 data class AI(
-    val aiId: Int = 0,
+    val aiId: Long = 0,
     val name: String,
     val rollAgain: (slots: List<Slot>)->Boolean
 ) {
@@ -12,6 +12,7 @@ data class AI(
     override fun toString() = name
 
     fun toPlayer() = Player(
+        playerId = aiId,
         playerName = name,
         isHuman = false,
         selectedAI = this
