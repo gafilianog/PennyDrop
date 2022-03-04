@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import dev.gafilianog.pennydrop.R
 import dev.gafilianog.pennydrop.databinding.FragmentPickPlayersBinding
 import dev.gafilianog.pennydrop.viewmodels.GameViewModel
 import dev.gafilianog.pennydrop.viewmodels.PickPlayersViewModel
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,15 +50,17 @@ class PickPlayersFragment : Fragment() {
                 this.vm = pickPlayersViewModel
 
                 this.buttonPlayGame.setOnClickListener {
-                    gameViewModel.startGame(
-                        pickPlayersViewModel.players.value
-                            ?.filter { newPlayer ->
-                                newPlayer.isIncluded.get()
-                            }?.map { newPlayer ->
-                                newPlayer.toPlayer()
-                            }?: emptyList()
-                    )
-                    findNavController().navigate(R.id.gameFragment)
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        gameViewModel.startGame(
+                            pickPlayersViewModel.players.value
+                                ?.filter { newPlayer ->
+                                    newPlayer.isIncluded.get()
+                                }?.map { newPlayer ->
+                                    newPlayer.toPlayer()
+                                }?: emptyList()
+                        )
+                        findNavController().navigate(R.id.gameFragment)
+                    }
                 }
             }
 

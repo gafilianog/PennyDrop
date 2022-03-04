@@ -2,6 +2,7 @@ package dev.gafilianog.pennydrop.game
 
 import dev.gafilianog.pennydrop.types.Player
 import dev.gafilianog.pennydrop.types.Slot
+import dev.gafilianog.pennydrop.types.fullSlots
 
 data class AI(
     val aiId: Long = 0,
