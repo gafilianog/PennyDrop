@@ -10,5 +10,5 @@ data class GameStatusWithPlayer(
         parentColumn = "playerId",
         entityColumn = "playerId"
     )
-    val player: Player.Companion = Player
+    val player: Player
 )

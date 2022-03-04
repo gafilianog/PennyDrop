@@ -4,6 +4,8 @@ import dev.gafilianog.pennydrop.types.Player
 
 class PennyDropRepository(private val pennyDropDao: PennyDropDao) {
 
+    fun getCompletedGameStatusesWithPlayers() = pennyDropDao.getCompletedGameStatusesWithPlayers()
+
     fun getCurrentGameWithPlayers() = pennyDropDao.getCurrentGameWithPlayers()
 
     fun getCurrentGameStatuses() = pennyDropDao.getCurrentGameStatuses()

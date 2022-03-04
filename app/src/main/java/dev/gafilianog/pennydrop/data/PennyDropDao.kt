@@ -34,6 +34,20 @@ abstract class PennyDropDao {
     )
     abstract fun getCurrentGameStatuses(): LiveData<List<GameStatus>>
 
+    @Transaction
+    @Query(
+        """
+        SELECT * FROM game_statuses gs
+        WHERE gs.gameId IN (
+            SELECT gameId FROM games
+            WHERE gameState = :finishedGameState
+        )
+        """
+    )
+    abstract fun getCompletedGameStatusesWithPlayers(
+        finishedGameState: GameState = GameState.Finished
+    ): LiveData<List<GameStatusWithPlayer>>
+
     @Insert
     abstract suspend fun insertGame(game: Game): Long
 

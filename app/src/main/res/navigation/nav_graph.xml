@@ -14,4 +14,9 @@
         android:id="@+id/gameFragment"
         android:name="dev.gafilianog.pennydrop.fragments.GameFragment"
         android:label="fragment_game"/>
+
+    <fragment
+        android:id="@+id/rankingsFragment"
+        android:name="dev.gafilianog.pennydrop.fragments.RankingsFragment"
+        android:label="fragment_rankings" />
 </navigation>
